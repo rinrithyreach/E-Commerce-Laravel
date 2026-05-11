@@ -38,7 +38,26 @@
 |----------|---------|
 | 🔐 Authentication | ⏳ Pending |
 | 🛡️ Roles & Permissions | ⏳ Pending |
+| 🏪 Vendor Management System | ⏳ Pending |
+| 📦 Product CRUD | ⏳ Pending |
+| 🗂️ Categories Management | ⏳ Pending |
+| 🔎 Search System | ⏳ Pending |
+| 📊 Inventory Management | ⏳ Pending |
 | 🛒 Cart System | ⏳ Pending |
+| ❤️ Wishlist System | ⏳ Pending |
 | 📄 Order System | ⏳ Pending |
 | 💳 Checkout Flow | ⏳ Pending |
 | 🧪 Payment Integration | ⏳ Pending |
+| 🔔 Notifications System | ⏳ Pending |
+| 💸 Refund Handling | ⏳ Pending |
+| ⭐ Product Reviews & Ratings | ⏳ Pending |
+| 🚚 Shipping Management | ⏳ Pending |
+| 📈 Sales Analytics Dashboard | ⏳ Pending |
+| 👨‍💼 Admin Dashboard | ⏳ Pending |
+| 🏬 Vendor Dashboard | ⏳ Pending |
+| 👤 Customer Profile Management | ⏳ Pending |
+| 🧾 Invoice Generation | ⏳ Pending |
+| 🎟️ Coupon & Discount System | ⏳ Pending |
+| 📱 API Testing (Postman) | ⏳ Pending |
+| 🔒 API Security & Validation | ⏳ Pending |
+| ☁️ Deployment Setup | ⏳ Pending |
