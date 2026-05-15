@@ -36,8 +36,8 @@
 
 | Feature | Status |
 |----------|---------|
-| 🔐 Authentication | ⏳ Pending |
-| 🛡️ Roles & Permissions | ⏳ Pending |
+| 🔐 Authentication | ✅ Completed |
+| 🛡️ Roles & Permissions | ✅ Completed |
 | 🏪 Vendor Management System | ⏳ Pending |
 | 📦 Product CRUD | ⏳ Pending |
 | 🗂️ Categories Management | ⏳ Pending |
