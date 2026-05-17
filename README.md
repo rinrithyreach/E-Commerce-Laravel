@@ -56,7 +56,7 @@
 | 👨‍💼 Admin Dashboard | ✅ Completed |
 | 🏬 Vendor Dashboard | ✅ Completed |
 | 👤 Customer Profile Management | ✅ Completed |
-| 🧾 Invoice Generation | ⏳ Pending |
+| 🧾 Invoice Generation | ✅ Completed |
 | 🎟️ Coupon & Discount System | ✅ Completed |
 | 📱 API Testing (Postman) | ✅ Completed |
 | 🔒 API Security & Validation | ✅ Completed |
