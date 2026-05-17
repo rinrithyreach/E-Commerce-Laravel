@@ -31,8 +31,8 @@ class DatabaseSeeder extends Seeder
             ]
         );
 
-        if (!$adminUser->hasRole('admin')) {
-            $adminUser->assignRole('admin');
+        if (!$adminUser->hasRole('super-admin')) {
+            $adminUser->assignRole('super-admin');
         }
 
         $this->command->info('Master application seeding cascade complete!');

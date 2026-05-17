@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('order_id')->constrained();
-            $table->enum('provider', ['aba', 'bakong', 'wing']);
+            $table->enum('provider', ['stripe', 'aba', 'bakong', 'wing']);
             $table->string('transaction_id')->unique();
             $table->string('external_transaction_id')->nullable();
             $table->decimal('amount', 12, 2);

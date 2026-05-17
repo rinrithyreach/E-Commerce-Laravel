@@ -2,17 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\notification;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class NotificationController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $notifications = DB::table('notifications')
+            ->where('notifiable_type', \App\Models\User::class)
+            ->where('notifiable_id', $request->user()->id)
+            ->latest()
+            ->paginate($request->integer('per_page', 15));
+
+        return response()->json(['status' => true, 'data' => $notifications]);
     }
 
     /**
@@ -34,9 +40,11 @@ class NotificationController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(notification $notification)
+    public function show(string $notification)
     {
-        //
+        $row = $this->ownedNotification($notification);
+
+        return response()->json(['status' => true, 'data' => $row]);
     }
 
     /**
@@ -50,16 +58,48 @@ class NotificationController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, notification $notification)
+    public function update(Request $request, string $notification)
     {
-        //
+        $this->ownedNotification($notification);
+
+        DB::table('notifications')->where('id', $notification)->update(['read_at' => now(), 'updated_at' => now()]);
+
+        return response()->json(['status' => true, 'message' => 'Notification marked as read.']);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(notification $notification)
+    public function destroy(string $notification)
     {
-        //
+        $this->ownedNotification($notification);
+
+        DB::table('notifications')->where('id', $notification)->delete();
+
+        return response()->json(['status' => true, 'message' => 'Notification deleted.']);
+    }
+
+    public function markAllRead(Request $request)
+    {
+        DB::table('notifications')
+            ->where('notifiable_type', \App\Models\User::class)
+            ->where('notifiable_id', $request->user()->id)
+            ->whereNull('read_at')
+            ->update(['read_at' => now(), 'updated_at' => now()]);
+
+        return response()->json(['status' => true, 'message' => 'All notifications marked as read.']);
+    }
+
+    private function ownedNotification(string $id)
+    {
+        $row = DB::table('notifications')
+            ->where('id', $id)
+            ->where('notifiable_type', \App\Models\User::class)
+            ->where('notifiable_id', request()->user()->id)
+            ->first();
+
+        abort_unless($row, 404);
+
+        return $row;
     }
 }

@@ -34,7 +34,7 @@ class RoleAndPermissionSeeder extends Seeder
         }
 
         // 3. Define and Create System Roles
-        $superAdmin = Role::firstOrCreate(['name' => 'admin', 'guard_name' => 'web']);
+        $superAdmin = Role::firstOrCreate(['name' => 'super-admin', 'guard_name' => 'web']);
         $vendor     = Role::firstOrCreate(['name' => 'vendor', 'guard_name' => 'web']);
         $customer   = Role::firstOrCreate(['name' => 'customer', 'guard_name' => 'web']);
 
