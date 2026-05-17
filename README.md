@@ -38,26 +38,26 @@
 |----------|---------|
 | 🔐 Authentication | ✅ Completed |
 | 🛡️ Roles & Permissions | ✅ Completed |
-| 🏪 Vendor Management System | ⏳ Pending |
-| 📦 Product CRUD | ⏳ Pending |
-| 🗂️ Categories Management | ⏳ Pending |
-| 🔎 Search System | ⏳ Pending |
-| 📊 Inventory Management | ⏳ Pending |
-| 🛒 Cart System | ⏳ Pending |
-| ❤️ Wishlist System | ⏳ Pending |
-| 📄 Order System | ⏳ Pending |
-| 💳 Checkout Flow | ⏳ Pending |
-| 🧪 Payment Integration | ⏳ Pending |
-| 🔔 Notifications System | ⏳ Pending |
-| 💸 Refund Handling | ⏳ Pending |
-| ⭐ Product Reviews & Ratings | ⏳ Pending |
-| 🚚 Shipping Management | ⏳ Pending |
-| 📈 Sales Analytics Dashboard | ⏳ Pending |
-| 👨‍💼 Admin Dashboard | ⏳ Pending |
-| 🏬 Vendor Dashboard | ⏳ Pending |
-| 👤 Customer Profile Management | ⏳ Pending |
+| 🏪 Vendor Management System | ✅ Completed |
+| 📦 Product CRUD | ✅ Completed |
+| 🗂️ Categories Management | ✅ Completed |
+| 🔎 Search System | ✅ Completed |
+| 📊 Inventory Management | ✅ Completed |
+| 🛒 Cart System | ✅ Completed |
+| ❤️ Wishlist System | ✅ Completed |
+| 📄 Order System | ✅ Completed |
+| 💳 Checkout Flow | ✅ Completed |
+| 🧪 Payment Integration | ✅ Completed |
+| 🔔 Notifications System | ✅ Completed |
+| 💸 Refund Handling | ✅ Completed |
+| ⭐ Product Reviews & Ratings | ✅ Completed |
+| 🚚 Shipping Management | ✅ Completed |
+| 📈 Sales Analytics Dashboard | ✅ Completed |
+| 👨‍💼 Admin Dashboard | ✅ Completed |
+| 🏬 Vendor Dashboard | ✅ Completed |
+| 👤 Customer Profile Management | ✅ Completed |
 | 🧾 Invoice Generation | ⏳ Pending |
-| 🎟️ Coupon & Discount System | ⏳ Pending |
-| 📱 API Testing (Postman) | ⏳ Pending |
-| 🔒 API Security & Validation | ⏳ Pending |
+| 🎟️ Coupon & Discount System | ✅ Completed |
+| 📱 API Testing (Postman) | ✅ Completed |
+| 🔒 API Security & Validation | ✅ Completed |
 | ☁️ Deployment Setup | ⏳ Pending |
