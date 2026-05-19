@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use Exception;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -12,7 +13,16 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        try{
+            $categories = Category::with('media')->where('is_active',true)->get()->toTree();
+            return response()->json([
+                'status' => true,
+                'categories' => $categories
+            ],200);
+
+        }catch(Exception $e){
+            return response()->json(['status'=>false,'message'=>$e->getMessage()],422);
+        }
     }
 
     /**
@@ -60,6 +70,8 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        
+
+
     }
 }

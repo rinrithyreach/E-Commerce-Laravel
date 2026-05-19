@@ -3,39 +3,48 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
+
 class DatabaseSeeder extends Seeder
 {
-    use WithoutModelEvents;
+    // 💡 REMOVED: "use WithoutModelEvents;" completely!
 
     /**
      * Seed the application's database.
      */
     public function run(): void
     {
-      $this->call([
-          RoleAndPermissionSeeder::class,
-      ]);
+        $this->call([
+            RoleAndPermissionSeeder::class,
+            CategorySeeder::class
+        ]);
 
-    // Create a default Admin user (relies on the roles created above)
-        $adminEmail = 'admin@marketplace.com';
+        $adminEmail = 'fracos2025@gmail.com';
 
         $adminUser = User::firstOrCreate(
             ['email' => $adminEmail],
             [
                 'name' => 'System Administrator',
                 'password' => Hash::make('Password123!'),
-                'email_verified_at' => now(), // Auto-verified for local dev testing
+                'email_verified_at' => now(),
             ]
         );
 
-        if (!$adminUser->hasRole('admin')) {
-            $adminUser->assignRole('admin');
+        $role = DB::table('roles')
+            ->where('name', 'super-admin')
+            ->where('guard_name', 'sanctum')
+            ->first();
+
+        if ($role) {
+            DB::table('model_has_roles')->insertOrIgnore([
+                'role_id'    => $role->id,
+                'model_type' => User::class,
+                'model_id'   => $adminUser->id,
+            ]);
         }
 
         $this->command->info('Master application seeding cascade complete!');
-
     }
 }

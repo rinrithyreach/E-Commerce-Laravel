@@ -6,9 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('product_variants', function (Blueprint $table) {
@@ -16,15 +13,12 @@ return new class extends Migration
             $table->foreignId('product_id')->constrained()->onDelete('cascade');
             $table->string('sku')->unique();
             $table->json('attributes'); // e.g., {"color": "Red", "size": "XL"}
-            $table->decimal('price_modifier', 12, 2)->default(0);
-            $table->integer('stock')->default(0);
+            $table->decimal('price_modifier', 12, 2)->default(0); // Add/subtract from product base_price
+            $table->integer('stock')->default(0); // Current cached available inventory count
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('product_variants');

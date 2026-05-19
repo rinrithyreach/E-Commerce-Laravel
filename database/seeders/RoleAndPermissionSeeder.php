@@ -16,7 +16,7 @@ class RoleAndPermissionSeeder extends Seeder
         // 1. Reset cached roles and permissions (Spatie Best Practice)
         app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
 
-        // 2. Define Core Permissions
+        // 2. Define Core Permissions explicitly for Sanctum tokens[cite: 1]
         $permissions = [
             'manage_vendors',
             'manage_categories',
@@ -29,17 +29,18 @@ class RoleAndPermissionSeeder extends Seeder
         foreach ($permissions as $permission) {
             Permission::firstOrCreate([
                 'name' => $permission,
-                'guard_name' => 'web'
+                'guard_name' => 'sanctum' // Changed to sanctum[cite: 1]
             ]);
         }
 
-        // 3. Define and Create System Roles
-        $superAdmin = Role::firstOrCreate(['name' => 'admin', 'guard_name' => 'web']);
-        $vendor     = Role::firstOrCreate(['name' => 'vendor', 'guard_name' => 'web']);
-        $customer   = Role::firstOrCreate(['name' => 'customer', 'guard_name' => 'web']);
+        // 3. Define and Create System Roles using the sanctum guard[cite: 1]
+        // Swapped 'admin' to 'super-admin' to precisely match your API route middleware logic[cite: 1]
+        $superAdmin = Role::firstOrCreate(['name' => 'super-admin', 'guard_name' => 'sanctum']);
+        $vendor     = Role::firstOrCreate(['name' => 'vendor', 'guard_name' => 'sanctum']);
+        $customer   = Role::firstOrCreate(['name' => 'customer', 'guard_name' => 'sanctum']);
 
         // 4. Assign Permissions to Roles
-        $superAdmin->syncPermissions(Permission::all()); // Admin gets everything
+        $superAdmin->syncPermissions(Permission::where('guard_name', 'sanctum')->get()); // Admin gets everything safely
 
         $vendor->syncPermissions([
             'manage_products',

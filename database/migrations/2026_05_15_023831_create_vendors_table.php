@@ -17,9 +17,10 @@ return new class extends Migration
             // Business Profile
             $table->string('business_name');
             $table->string('registration_number')->unique()->nullable();
-            $table->string('status'); // Managed by spatie/laravel-model-states
+            $table->string('status')->default('pending');
             $table->decimal('commission_rate', 5, 2)->default(10.00);
-
+            $table->string('support_email')->nullable();
+            $table->string('support_phone')->nullable();
             // Payment Credentials (ABA, Bakong, Wing)
             $table->string('aba_merchant_id')->nullable();
             $table->string('aba_api_key')->nullable();
